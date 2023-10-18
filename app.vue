@@ -1,10 +1,14 @@
 <template>
   <NuxtLayout name="default">
-    <router-view />
+    <NuxtLoadingIndicator color="var(--secondary)" />
+    <NuxtPage />
   </NuxtLayout>
 </template>
 
 <style>
+html {
+  overflow: hidden;
+}
 body {
   margin: 0;
   padding: 0;
@@ -22,3 +26,10 @@ code {
   color: var(--light);
 }
 </style>
+
+<script setup lang="ts">
+const route = useRoute()
+
+const { status, data } = useSession();
+console.log(data);
+</script>

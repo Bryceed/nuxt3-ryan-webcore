@@ -1,3 +1,4 @@
+import { AuthenticationStatus } from '../.nuxt/components';
 <template>
     <div class="flex flex-row items-start">
         <QuickMenu />

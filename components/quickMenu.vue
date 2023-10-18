@@ -1,3 +1,4 @@
+import { ThemeSwitcher } from '../.nuxt/components';
 <template>
     <div>
         <div class="quickMenu" :class="{ 'menu-expanded': drawer }">
@@ -25,6 +26,9 @@
                             <v-list-item-title>{{ item.title }}</v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
+                    <div class="mx-auto">
+                        <ThemeSwitcher />
+                    </div>
                 </v-list>
             </div>
         </div>
@@ -121,7 +125,7 @@
     }
     
     .quickMenu {
-        width: 60px;
+        width: 56px;
         height: 100vh;
         transition: 0.2s ease-out;
         display: flex;
@@ -195,7 +199,7 @@
         color: var(--secondary) !important;
         background-color: transparent !important;
         box-shadow: none !important;
-        margin-right: 8px;
+        margin-right: 4px;
     }
     .menu-icon {
         color: var(--light);
