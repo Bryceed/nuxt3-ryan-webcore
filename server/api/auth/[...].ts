@@ -2,7 +2,7 @@ import { NuxtAuthHandler } from '#auth'
 import DiscordProvider from 'next-auth/providers/discord'
 
 export default NuxtAuthHandler({
-    secret: process.env.AUTH_SECRET,
+    secret: useRuntimeConfig().authJs.secret,
     callbacks: {
         jwt: async ({token, user}) => {
           const isSignIn = user ? true : false;
@@ -22,8 +22,8 @@ export default NuxtAuthHandler({
     providers: [
         // @ts-expect-error
         DiscordProvider.default({
-            clientId: process.env.DISCORD_CLIENT_ID,
-            clientSecret: process.env.DISCORD_CLIENT_SECRET
+            clientId: useRuntimeConfig().authJs.providers.discord.clientId,
+            clientSecret: useRuntimeConfig().authJs.providers.discord.clientSecret,
         })
     ]
 })

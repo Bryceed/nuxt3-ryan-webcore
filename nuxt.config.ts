@@ -1,7 +1,6 @@
 import { resolve } from "node:path"
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
-// @ts-expect-error
 export default defineNuxtConfig({
     devtools: {
         enabled: true,
@@ -33,13 +32,22 @@ export default defineNuxtConfig({
         }
     },
     auth: {
+        origin: "https://ryan.rydermais.com",
+        //origin: "http://localhost:8080",
         provider: {
             type: 'authjs'
-        }
+        },
+        globalAppMiddleware: true,
     },
     runtimeConfig: {
         authJs: {
-            secret: process.env.AUTH_SECRET
+            secret: process.env.AUTH_SECRET,
+            providers: {
+                discord: {
+                    clientId: process.env.DISCORD_CLIENT_ID,
+                    clientSecret: process.env.DISCORD_CLIENT_SECRET
+                }
+            }
         },
         googleFonts: {
             families: {
@@ -49,7 +57,10 @@ export default defineNuxtConfig({
         port: 8080,
     },
     devServer: {
-        port: 3001,
+        // https: {
+        //     key: './myserver+3-key.pem',
+        //     cert: './myserver+3.pem',
+        // }
     },
     server: {
         port: 3000,

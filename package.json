@@ -7,26 +7,27 @@
     "dev": "nuxt dev --host 0.0.0.0",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "patch-package && nuxt prepare",
     "server": "cross-env PORT=8080 node .output/server/index.mjs",
     "start": "nuxt start"
   },
   "dependencies": {
-    "@hebilicious/authjs-nuxt": "^0.3.4",
+    "@hebilicious/authjs-nuxt": "0.3.4",
     "@iconify-json/mdi": "^1.1.54",
     "@iconify-json/simple-icons": "^1.1.75",
     "@nuxt/devtools": "latest",
     "@nuxt/types": "^2.17.1",
     "@nuxt/ui": "^2.9.0",
     "@nuxtjs/google-fonts": "^3.0.2",
-    "@sidebase/nuxt-auth": "^0.4.3",
+    "@sidebase/nuxt-auth": "0.4.3",
     "@unocss/nuxt": "^0.56.5",
     "cross-env": "^7.0.3",
-    "next-auth": "^4.18.8",
+    "next-auth": "4.20.1",
     "nuxt": "^3.7.4",
+    "patch-package": "^6.5.1",
+    "typescript": "^4.9.3",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5",
-    "vuetify-nuxt-module": "^0.5.15",
-    "typescript": "^4.9.3"
+    "vuetify-nuxt-module": "^0.5.15"
   }
 }
