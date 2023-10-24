@@ -32,7 +32,7 @@ export default defineNuxtConfig({
         }
     },
     auth: {
-        origin: "http://localhost:8080",
+        origin: process.env.AUTH_ORIGIN,
         provider: {
             type: 'authjs'
         },
