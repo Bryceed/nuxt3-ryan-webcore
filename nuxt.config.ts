@@ -32,8 +32,7 @@ export default defineNuxtConfig({
         }
     },
     auth: {
-        origin: "https://ryan.rydermais.com",
-        //origin: "http://localhost:8080",
+        origin: "http://localhost:8080",
         provider: {
             type: 'authjs'
         },

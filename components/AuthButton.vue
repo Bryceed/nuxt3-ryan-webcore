@@ -27,9 +27,24 @@ if (status === 'authenticated') {
 
 <template>
     <div v-if="status === 'authenticated'">
-        <UDropdown :items="loggedItems" :ui="{ background: 'dark:bg-black', item: { disabled: 'cursor-text select-text' } }" :popper="{ placement: 'bottom-end' }" color="gray" size="sm">
+        <UDropdown :items="loggedItems" :ui="{ background: 'dark:bg-black', item: { disabled: 'cursor-text select-text' } }" :popper="{ placement: 'bottom-end' }" color="gray" size="sm" class="p-1 border-1 border-#FFFFFF22 rounded-full pr-2.5 pl-1.3 bg-#00000033">
+            
+            <div class="userImage border-white border-1 rounded-full overflow-hidden bg-white dark:bg-gray-800 w-8 h-8">
+                <UAvatar 
+                :src="data.user.image" 
+                :alt="data.user.name" 
+                :ui="{ wrapper: 'relative' }"
+                size="sm" />
+            </div>
 
-            <UAvatar :src="data.user.image" :alt="data.user.name" size="sm" />
+            <div class="flex flex-col justify-center ml-1">
+                <span class="truncate text-gray-100 dark:text-white font-bold line-height-4 font-size-4 capitalize">
+                    {{ data?.user?.name }}
+                </span>
+                <span class="truncate text-gray-300 dark:text-gray-400 line-height-3 font-size-2.7">
+                    {{ data?.user?.email }}
+                </span>
+            </div>
 
             <template #account>
                 <div class="text-left">
@@ -55,8 +70,9 @@ if (status === 'authenticated') {
             size="sm"
             :color="isDark ? 'gray' : 'blue'"
             label="Login"
+            :ui="{ rounded: 'rounded-full' }"
             :trailing="false"
-            @click="signIn()"
+            @click="signIn('discord')"
         />
     </div>
 </template>
